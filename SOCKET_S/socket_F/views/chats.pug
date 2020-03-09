@@ -1,0 +1,10 @@
+extends templates/base
+block content
+    form(action="/create-chat" method="POST")
+        h3= principal.name + ", you can create a chat"
+        input(type='text' name="name" required=true)
+        input(type='submit' value="Create a chat")
+    ul
+        each chat in chats
+            li
+                a(href=`/chats/${chat._id}`)=chat.name
